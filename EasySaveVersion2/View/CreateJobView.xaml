@@ -1,0 +1,383 @@
+﻿<UserControl x:Class="EasySaveVersion2.View.CreateJobView"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:local="clr-namespace:EasySaveVersion2.View"
+            mc:Ignorable="d" 
+            d:DesignHeight="474" d:DesignWidth="722">
+
+
+<!---CONTAINER-->
+<Grid Margin="87,0,0,0">
+    <!--CONTAINER-->
+
+    <Grid>
+
+        <!--LAYOUT-->
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="237*"/>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="81*"/>
+            <ColumnDefinition Width="239*"/>
+
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="66*" />
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="189*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="65*"/>
+
+
+        </Grid.RowDefinitions>
+
+
+        <!--TITLE-->
+        <Grid 
+                Grid.Column="1"
+                Grid.Row="0" Grid.ColumnSpan="2" Margin="52,0,0,0">
+
+            <TextBlock 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                FontSize="24" 
+                FontWeight="Bold" 
+                Margin="-28,5,-18,5" 
+                Width="187"
+                Name="Title"
+                Text="{Binding Path=Title}"
+                >Create A JOB
+            </TextBlock>
+        </Grid>
+
+        <!--Name section-->
+        <Grid x:Name="NameJob" 
+                Grid.Column="0"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                >
+            <Label 
+                Name="Lb_Name"
+                Content="{Binding Path=LbName}" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" Margin="10,10,0,0" Background="{x:Null}" FontSize="16"/>
+            <TextBox 
+                x:Name="JobName"
+                HorizontalAlignment="Left" 
+                Height="22" 
+                Margin="10,62,0,12" 
+                TextWrapping="Wrap" 
+                Width="168" 
+                BorderBrush="Black"
+                VerticalAlignment="Center" 
+                FontSize="16" 
+                />
+
+        </Grid>
+            
+            
+        <!-- max LENGTH + FOREIGN SOFTWARE -->
+
+        <Grid x:Name="Other"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                Grid.Row="2" 
+                Grid.RowSpan="2"
+        >
+            <Label 
+                Name="FS_Name"
+                Content="{Binding Path=LbName}" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" Margin="10,0,0,0" Background="{x:Null}" FontSize="16"/>
+                
+            <Label 
+                Name="Max_Length"
+                Content="{Binding Path=LBmaxLen}" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" Margin="10,53,0,0" Background="{x:Null}" FontSize="16"/>
+                
+            <TextBox 
+                x:Name="FsName"
+                HorizontalAlignment="Left" 
+                Height="22" 
+                Margin="10,28,0,54" 
+                TextWrapping="Wrap" 
+                Width="168" 
+                BorderBrush="Black"
+                VerticalAlignment="Center" 
+                FontSize="16" 
+                />
+ 
+            <TextBox 
+                x:Name="MaxLength"
+                HorizontalAlignment="Left" 
+                Height="22" 
+                Margin="10,82,0,0" 
+                TextWrapping="Wrap" 
+                Width="168" 
+                BorderBrush="Black"
+                VerticalAlignment="Center" 
+                FontSize="16" 
+                />
+        </Grid>
+
+        <!--BACKUP TYPE SECTION-->
+        <Grid 
+                Grid.Column="4"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                >
+            <Label 
+                x:Name="Lb_Type"
+                Content="{Binding Path=LbType}"
+                HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <RadioButton 
+                x:Name="RaBtnComp" 
+                Content="{Binding Path=CompleteBtn}" 
+                HorizontalAlignment="Left" 
+                Margin="10,66,0,15" 
+                VerticalAlignment="Center" 
+                BorderBrush="Black" 
+                IsChecked="True" 
+                />
+            <RadioButton 
+                x:Name="RaBtnDiff" 
+                Content="{Binding Path=Incremental}" 
+                HorizontalAlignment="Left" 
+                Margin="10,46,0,35" 
+                VerticalAlignment="Center"
+                BorderBrush="Black" 
+                />
+        </Grid>
+
+
+
+        <!--Encryption SECTION-->
+        <Grid x:Name="EncJob" 
+                Grid.Column="0"
+                Grid.Row="4" Margin="10,0,0,0"
+                >
+            <Label 
+                x:Name="LbExt"
+                Content="{Binding Path=LbExtention}" 
+                HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+
+
+            <ListBox 
+                x:Name="ListCheckBox"
+                Height="134" Margin="15,58,0,7" Width="163" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" FontStretch="ExtraExpanded" BorderThickness="2,1,2,2" SnapsToDevicePixels="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}">
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckIco" 
+                Content="ico" VerticalAlignment="Top" BorderBrush="Black" Width="131" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckTxt"
+                Content="txt" VerticalAlignment="Top" BorderBrush="Black" Width="112" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckPdf"
+                Content="pdf" VerticalAlignment="Top" BorderBrush="Black" Width="112" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckPng"
+                Content="png" VerticalAlignment="Top" BorderBrush="Black" Width="112" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckJpeg"
+                Content="jpeg" VerticalAlignment="Top" BorderBrush="Black" Width="131" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckJson"
+                Content="json" VerticalAlignment="Top" BorderBrush="Black" Width="135" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckMp4"
+                Content="mp4" VerticalAlignment="Top" BorderBrush="Black" Width="114" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckFlv"
+                Content="flv" VerticalAlignment="Top" BorderBrush="Black" Width="92" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckGif"
+                Content="gif" VerticalAlignment="Top" BorderBrush="Black" Width="135" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckWebp"
+                Content="webp" VerticalAlignment="Top" BorderBrush="Black" Width="114" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckDoc"
+                Content="doc" VerticalAlignment="Top" BorderBrush="Black" Width="121" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckPpt"
+                Content="ppt" VerticalAlignment="Top" BorderBrush="Black" Width="121" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckOgg"
+                VerticalAlignment="Top" BorderBrush="Black" Content="ogg" Width="102" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked"
+                x:Name="CheckDocx"
+                Content="docx" VerticalAlignment="Top" BorderBrush="Black" Width="87" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckHtml"
+                Content="html" VerticalAlignment="Top" BorderBrush="Black" Width="102" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckJs"
+                Content="js" VerticalAlignment="Top" BorderBrush="Black" Width="54" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckXml"
+                Content="xml" VerticalAlignment="Top" BorderBrush="Black" Width="73" Height="19"/>
+                <CheckBox   Checked="myCheckBox_Checked" Unchecked="myCheckBox_Unchecked" 
+                x:Name="CheckXlsx"
+                Content="xlsx" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="Black" Width="79" Height="19"/>
+            </ListBox>
+        </Grid>
+
+
+        <!--PRIORITY SECTION-->
+        <Grid x:Name="PrioJob" 
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                Grid.Row="4" Margin="10,0,0,0"
+                >
+            <Label 
+                x:Name="LbPrio"
+                Content="{Binding Path=LbExtentionPrio}" 
+                HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <ListBox 
+                x:Name="ListCheckBoxPrio"
+                Height="134" Margin="15,58,0,7" Width="163" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" FontStretch="ExtraExpanded" BorderThickness="2,1,2,2" SnapsToDevicePixels="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}">
+
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckIcoPrio" 
+                Content="ico" VerticalAlignment="Top" BorderBrush="Black" Width="131" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckTxtPrio"
+                Content="txt" VerticalAlignment="Top" BorderBrush="Black" Width="112" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckPdfPrio"
+                Content="pdf" VerticalAlignment="Top" BorderBrush="Black" Width="112" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckPngPrio"
+                Content="png" VerticalAlignment="Top" BorderBrush="Black" Width="112" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckJpegPrio"
+                Content="jpeg" VerticalAlignment="Top" BorderBrush="Black" Width="131" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckJsonPrio"
+                Content="json" VerticalAlignment="Top" BorderBrush="Black" Width="135" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckMp4Prio"
+                Content="mp4" VerticalAlignment="Top" BorderBrush="Black" Width="114" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckFlvPrio"
+                Content="flv" VerticalAlignment="Top" BorderBrush="Black" Width="92" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckGifPrio"
+                Content="gif" VerticalAlignment="Top" BorderBrush="Black" Width="135" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckWebpPrio"
+                Content="webp" VerticalAlignment="Top" BorderBrush="Black" Width="114" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckDocPrio"
+                Content="doc" VerticalAlignment="Top" BorderBrush="Black" Width="121" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckPptPrio"
+                Content="ppt" VerticalAlignment="Top" BorderBrush="Black" Width="121" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckOggPrio"
+                VerticalAlignment="Top" BorderBrush="Black" Content="ogg" Width="102" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked"
+                x:Name="CheckDocxPrio"
+                Content="docx" VerticalAlignment="Top" BorderBrush="Black" Width="87" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckHtmlPrio"
+                Content="html" VerticalAlignment="Top" BorderBrush="Black" Width="102" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckJsPrio"
+                Content="js" VerticalAlignment="Top" BorderBrush="Black" Width="54" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckXmlPrio"
+                Content="xml" VerticalAlignment="Top" BorderBrush="Black" Width="73" Height="19"/>
+                <CheckBox   Checked="myCheckBoxPrio_Checked" Unchecked="myCheckBoxPrio_Unchecked" 
+                x:Name="CheckXlsxPrio"
+                Content="xlsx" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" BorderBrush="Black" Width="79" Height="19"/>
+
+            </ListBox>
+        </Grid>
+
+
+        <!--PATH SECTION-->
+        <Grid x:Name="PathJob" 
+                Grid.Column="4"
+                Grid.Row="4"
+                >
+            <Label 
+                x:Name="LbSource"
+                Content="{Binding Path=LbSourcePath}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <Label 
+                x:Name="LbTarget"
+                Content="{Binding Path=LbTargetPath}" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox 
+                x:Name="JobSourcePath"
+                HorizontalAlignment="Left" 
+                Height="23" 
+                Margin="10,46,0,0" 
+                TextWrapping="Wrap" 
+                VerticalAlignment="Top" 
+                Width="170" BorderBrush="Black" 
+                />
+            <TextBox 
+                x:Name="JobTargetPath"
+                HorizontalAlignment="Left" 
+                Height="23" Margin="10,121,0,0" 
+                TextWrapping="Wrap" 
+                VerticalAlignment="Top"
+                Width="170" 
+                BorderBrush="Black" 
+                />
+        </Grid>
+
+        <!--SUBMIT BUTTON SECTION-->
+        <Grid 
+                Grid.Column="2"
+                Grid.Row="6"
+                >
+            <Button 
+                Content="" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Width="84" 
+                Height="65" 
+                BorderBrush="{x:Null}" 
+                Foreground="{x:Null}" 
+                BorderThickness="4" 
+                Margin="19,0,24,0" 
+                SnapsToDevicePixels="True"
+                Click="SubmitJob"
+                >
+                <Button.Background>
+                    <ImageBrush ImageSource="/EasySaveVersion2;component/assets/on-button.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+
+
+        <!--LANG-->
+
+        <Grid
+            Grid.Column="4"
+            >
+            <Button Click="FrLang" Content="Fr" Margin="41,10,96,-8">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EasySaveVersion2;component/assets/france (1).png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button Click="EnLang" Content="En" Margin="-47,10,187,-8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/EasySaveVersion2;component/assets/united-kingdom.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+
+    </Grid>
+</Grid>
+</UserControl>

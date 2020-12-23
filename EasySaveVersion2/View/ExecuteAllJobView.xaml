@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="EasySaveVersion2.View.ExecuteAllJobView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasySaveVersion2.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="371" d:DesignWidth="667">
+    <Grid
+        >
+
+        <!--LAYOUT-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*" />
+            <RowDefinition Height="307*" />
+        </Grid.RowDefinitions>
+
+        <!--TITLE-->
+        <Grid 
+                  Grid.Row="0" Grid.ColumnSpan="3" Margin="149,0,169,0">
+
+            <TextBlock 
+                    x:Name="Title"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    FontSize="24" 
+                    FontWeight="Bold" 
+                    Margin="-103,0,-99,3" 
+                    Width="359"
+                    Text="{Binding Path=Tb}"
+                    >
+                Execute All Jobs
+            </TextBlock>
+        </Grid>
+
+        <!--LANG BUTTON-->
+        <Grid
+            Grid.Column="2"
+            >
+            <Button Click="FrLang" Content="Fr" Margin="94,0,96,10">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EasySaveVersion2;component/assets/france (1).png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button Click="EnLang" Content="En" Margin="10,0,178,10" >
+                <Button.Background>
+                    <ImageBrush Stretch="UniformToFill" ImageSource="/EasySaveVersion2;component/assets/united-kingdom.png"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+
+        <!--Buttons-->
+
+        <Grid     
+                  Grid.Column="1" 
+                  Grid.Row="1" 
+                  Margin="10,10,10,36"
+                  >
+            <!--<Button Content="" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center" Width="169" Height="267" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="3">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EasySaveVersion2;component/assets/on-button.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>-->
+            <Button  
+                Click="ExecuteAllJobs"
+                HorizontalAlignment="Center" Margin="10,51,10,64" VerticalAlignment="Center" Width="169" Height="172" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="3" Background="{x:Null}">
+                <StackPanel>
+                    <Image Source="/EasySaveVersion2;component/assets/on-button.png" Stretch="Uniform" />
+                </StackPanel>
+            </Button>
+        </Grid>
+
+    </Grid>
+</UserControl>

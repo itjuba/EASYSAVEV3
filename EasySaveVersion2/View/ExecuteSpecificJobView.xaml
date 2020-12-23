@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="EasySaveVersion2.View.ExecuteSpecificJobView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasySaveVersion2.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+
+    <!--CONTAINER-->
+    <Grid>
+
+        <!--LAYOUT-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="264*" />
+            <ColumnDefinition Width="91*" />
+            <ColumnDefinition Width="106*" />
+            <ColumnDefinition Width="84*" />
+            <ColumnDefinition Width="255*" />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21*" />
+            <RowDefinition Height="176*" />
+            <RowDefinition Height="28*" />
+        </Grid.RowDefinitions>
+
+
+        <!--TITLE-->
+
+        <Grid  
+                Grid.Column="1"
+                Grid.Row="0" 
+                Grid.ColumnSpan="3" 
+                Margin="52,0,0,0">
+
+            <TextBlock 
+                    x:Name="Title" 
+                    Text="{Binding Path=TbTitle}"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    FontSize="24" 
+                    FontWeight="Bold" 
+                    Margin="-33,10,-31,0" 
+                    Width="293"
+                    />
+
+        </Grid>
+
+
+        <!--SELECTOR-->
+
+        <Grid x:Name="Selector" 
+                Grid.Column="0"
+                Grid.Row="1" 
+                Grid.ColumnSpan="5"
+              >
+
+
+            <ListView x:Name="ListJob" DisplayMemberPath="name"
+                HorizontalAlignment="Left" Height="268" Margin="108,34,0,0" VerticalAlignment="Top" Width="594" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}">
+
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn x:Name="HHname" Header="{Binding Path=HName}" DisplayMemberBinding="{Binding Path=Name}"/>
+                        <GridViewColumn x:Name="HHsource" Header="{Binding Path=HSource}" DisplayMemberBinding="{Binding Path=Source}"/>
+                        <GridViewColumn x:Name="HHtarget" Header="{Binding Path=HTarget}" DisplayMemberBinding="{Binding Path=Target}"/>
+                        <GridViewColumn x:Name="HHtype" Header="{Binding Path=HType}" DisplayMemberBinding="{Binding Path=Type}"/>
+                        <GridViewColumn x:Name="HHfoSof" Header="{Binding Path=HfoSof}" DisplayMemberBinding="{Binding Path=FoSof}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
+
+        </Grid>
+
+
+        <!--BUTTONS-->
+
+        <Grid x:Name="ExecuteBtn" 
+                Grid.Column="2"
+                Grid.Row="2"
+              >
+            <Button 
+                Click="ExecuteSpecificJob"
+                Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="91" Height="56" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="4,4,4,6.7">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EasySaveVersion2;component/assets/on-button.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+
+
+        <Grid Grid.Column="4"
+            >
+            <Button Click="FrLang" Content="Fr" Margin="96,0,90,2">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EasySaveVersion2;component/assets/france (1).png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button Click="EnLang" Content="En" Margin="10,0,178,2" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/EasySaveVersion2;component/assets/united-kingdom.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+
+
+    </Grid>
+
+
+
+</UserControl>
